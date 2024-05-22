@@ -89,7 +89,7 @@
         <img id="coffee-image" src="https://ih1.redbubble.net/image.5464342334.9312/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg">
         <div class="buttons">
             <button id="yes-button">Evet</button>
-            <button id="no-button" disabled>Hayır</button>
+            <button id="no-button">Hayır</button>
         </div>
     </div>
     <script>
@@ -123,8 +123,6 @@
             ];
             let currentImageIndex = -1;
 
-	    initializeButtonPosition();
-
             noButton.addEventListener('mouseover', moveButton);
             noButton.addEventListener('click', moveButton);
 
@@ -132,19 +130,6 @@
                 currentImageIndex = (currentImageIndex + 1) % images.length;
                 coffeeImage.src = images[currentImageIndex];
             });
-
-	    function initializeButtonPosition() {
-	        const buttonRect = noButton.getBoundingClientRect();
-	
-	        const maxX = window.innerWidth - buttonRect.width;
-	        const maxY = window.innerHeight - buttonRect.height;
-	
-	        const initialX = Math.floor(Math.random() * maxX);
-	        const initialY = Math.floor(Math.random() * maxY);
-	
-	        noButton.style.left = `${initialX}px`;
-	        noButton.style.top = `${initialY}px`;
-	    }
 
 	    function moveButton() {
 	        const buttonRect = noButton.getBoundingClientRect();
