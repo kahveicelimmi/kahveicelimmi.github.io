@@ -15,58 +15,71 @@
 	
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        img {
-            width: 300px;
-            height: auto;
-            margin-bottom: 20px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        #no-button {
-            position: relative;
-        }
-		
-        @media (max-width: 600px) {
-            .buttons {
-                flex-direction: column;
-            }
-            
-            button {
-                margin-bottom: 10px;
-            }
-        }
+	/* Google Fonts'tan Poppins yazı tipini dahil ettik */
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+	
+	body {
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+	    height: 100vh;
+	    margin: 0;
+	    font-family: 'Poppins', sans-serif;
+	    background-color: #f0f0f0;
+	}
+	
+	.container {
+	    text-align: center;
+	    flex-grow: 1;
+	}
+	
+	h1 {
+	    font-size: 2rem;
+	    margin-bottom: 20px;
+	    text-transform: uppercase;
+	}
+	
+	img {
+	    width: 300px;
+	    height: auto;
+	    margin-bottom: 20px;
+	}
+	
+	.buttons {
+	    display: flex;
+	    justify-content: center;
+	    gap: 20px;
+	}
+	
+	button {
+	    padding: 10px 20px;
+	    font-size: 1rem;
+	    cursor: pointer;
+	}
+	
+	#no-button {
+	    position: relative;
+	    transition: left 0.5s ease, top 0.5s ease; /* Pozisyon değişikliklerinde geçiş animasyonu */
+	}
+	
+	footer {
+	    background-color: #333;
+	    color: #fff;
+	    text-align: center;
+	    padding: 10px 0;
+	    width: 100%;
+	}
+	
+	@media (max-width: 600px) {
+	    .buttons {
+	        flex-direction: column;
+	    }
+	    
+	    button {
+	        margin-bottom: 10px;
+	    }
+	}
     </style>
 </head>
 <body>
