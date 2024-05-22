@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kahve İçelim Mi?</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        #no-button {
+            position: relative;
+        }
+		
+        @media (max-width: 600px) {
+            .buttons {
+                flex-direction: column;
+            }
+            
+            button {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+		<a href="">insta: akiifdora</a>
+        <h1>KAHVE İÇELİM Mİ?</h1>
+        <img id="coffee-image" src="https://ih1.redbubble.net/image.5464342334.9312/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg">
+        <div class="buttons">
+            <button id="yes-button">Evet</button>
+            <button id="no-button">Hayır</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const noButton = document.getElementById('no-button');
+            const yesButton = document.getElementById('yes-button');
+            const coffeeImage = document.getElementById('coffee-image');
+
+            const images = [
+                'https://i.pinimg.com/736x/85/f9/12/85f9128f5db8b74157f4154508f1e8f0.jpg',
+                'https://wallpapers.com/images/hd/meme-pictures-t5i9qfiats5iylyv.jpg',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgbo8LU1c5kiDl74PiY2LbILZ2NTl5tWQTVT3VRul_8A&s',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV0BtsMcgJYxZ_7Onbq06cR2AKxygZz_lyOkufDtjxXw&s',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTJVPBJso9vVKysCHkGrQ4sbirtWa71KxhLEs3WFsNqA&s',
+                'https://a.pinatafarm.com/220x220/752a1e1686/pepe-happy.jpg',
+                'https://www.pngall.com/wp-content/uploads/2016/03/Happy-Crying-Meme-PNG.png',
+                'https://ih1.redbubble.net/image.5356383805.5149/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg',
+                'https://stickerly.pstatic.net/sticker_pack/knNXGHzQcHgDdi7DV8p0yA/OBNOIK/2/049374df-bf5d-4713-ac0f-d44fb37ac477.png',
+                'https://i.pinimg.com/564x/90/94/65/9094652a666e12f9b85b896b5d4db8aa.jpg',
+                'https://media.tenor.com/IjIXFxklw40AAAAe/meme-shitpost.png',
+                'https://media.tenor.com/X_99sABFWmYAAAAe/shitpost.png'
+            ];
+            let currentImageIndex = 0;
+
+            noButton.addEventListener('mouseover', moveButton);
+            noButton.addEventListener('click', moveButton);
+
+            yesButton.addEventListener('click', function() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                coffeeImage.src = images[currentImageIndex];
+            });
+
+            function moveButton() {
+                const buttonRect = noButton.getBoundingClientRect();
+
+                const maxX = window.innerWidth - buttonRect.width;
+                const maxY = window.innerHeight - buttonRect.height;
+
+                const newX = Math.floor(Math.random() * maxX);
+                const newY = Math.floor(Math.random() * maxY);
+
+                noButton.style.position = 'fixed';
+                noButton.style.left = `${newX}px`;
+                noButton.style.top = `${newY}px`;
+            }
+        });
+    </script>
+</body>
+</html>
