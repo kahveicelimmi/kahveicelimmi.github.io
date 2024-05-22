@@ -59,7 +59,7 @@
 	}
 	
 	#no-button {
-	    position: relative;
+	    position: fixed;
 	    transition: left 0.5s ease, top 0.5s ease; /* Pozisyon değişikliklerinde geçiş animasyonu */
 	}
 	
@@ -121,7 +121,9 @@
 		'https://i.pinimg.com/200x150/97/1f/b4/971fb4d28e0878c952294ab2059746b2.jpg',
 		'https://i.pinimg.com/550x/04/5f/ab/045fab99490a55a8cacd0aa620340c6f.jpg'
             ];
-            let currentImageIndex = 0;
+            let currentImageIndex = -1;
+
+	    initializeButtonPosition();
 
             noButton.addEventListener('mouseover', moveButton);
             noButton.addEventListener('click', moveButton);
@@ -131,19 +133,31 @@
                 coffeeImage.src = images[currentImageIndex];
             });
 
-            function moveButton() {
-                const buttonRect = noButton.getBoundingClientRect();
+	    function initializeButtonPosition() {
+	        const buttonRect = noButton.getBoundingClientRect();
+	
+	        const maxX = window.innerWidth - buttonRect.width;
+	        const maxY = window.innerHeight - buttonRect.height;
+	
+	        const initialX = Math.floor(Math.random() * maxX);
+	        const initialY = Math.floor(Math.random() * maxY);
+	
+	        noButton.style.left = `${initialX}px`;
+	        noButton.style.top = `${initialY}px`;
+	    }
 
-                const maxX = window.innerWidth - buttonRect.width;
-                const maxY = window.innerHeight - buttonRect.height;
-
-                const newX = Math.floor(Math.random() * maxX);
-                const newY = Math.floor(Math.random() * maxY);
-
-                noButton.style.position = 'fixed';
-                noButton.style.left = `${newX}px`;
-                noButton.style.top = `${newY}px`;
-            }
+	    function moveButton() {
+	        const buttonRect = noButton.getBoundingClientRect();
+	
+	        const maxX = window.innerWidth - buttonRect.width;
+	        const maxY = window.innerHeight - buttonRect.height;
+	
+	        const newX = Math.floor(Math.random() * maxX);
+	        const newY = Math.floor(Math.random() * maxY);
+	
+	        noButton.style.left = `${newX}px`;
+	        noButton.style.top = `${newY}px`;
+	    }
         });
     </script>
 </body>
